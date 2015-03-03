@@ -42,7 +42,6 @@ public enum Action {
         public void perform(
                 final Lion lion,
                 final Event event) {
-            System.out.println("The " + lion + " gets hungry");
             lion.setFullness(Fullness.HUNGRY);
         }
     },
@@ -51,7 +50,6 @@ public enum Action {
         public void perform(
                 final Lion lion,
                 final Event event) {
-            System.out.println("The " + lion + " gets full");
             lion.setFullness(Fullness.FULL);
         }
     };

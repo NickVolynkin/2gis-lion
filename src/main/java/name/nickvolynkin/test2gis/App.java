@@ -1,4 +1,4 @@
-package name.nickvolynkin.test2gis;
+package main.java.name.nickvolynkin.test2gis;
 
 /**
  * Hello world!

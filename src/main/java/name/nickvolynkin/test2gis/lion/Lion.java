@@ -12,12 +12,16 @@ public class Lion {
 
     }
 
-
     public Fullness getFullness() {
         return fullness;
     }
 
     void setFullness(final Fullness fullness) {
+        System.out.println("The " + this + " gets " + fullness);
         this.fullness = fullness;
+    }
+
+    @Override public String toString() {
+        return "Lion";
     }
 }
