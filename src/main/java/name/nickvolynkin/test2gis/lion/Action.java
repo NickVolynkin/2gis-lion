@@ -14,8 +14,8 @@ public enum Action {
         @Override
         public void perform(
                 final Lion lion,
-                final Object event) {
-            super.perform(lion, event);
+                final Object object) {
+            super.perform(lion, Fullness.HUNGRY);
             lion.setFullness(Fullness.HUNGRY);
         }
     },
@@ -23,11 +23,13 @@ public enum Action {
         @Override
         public void perform(
                 final Lion lion,
-                final Object event) {
-            super.perform(lion, event);
+                final Object object) {
+            super.perform(lion, Fullness.FULL);
             lion.setFullness(Fullness.FULL);
         }
-    };
+    },
+    DESCRIBE(Constants.IS),
+    ;
 
     Action(final String message) {
         this.message = message;
@@ -35,8 +37,8 @@ public enum Action {
 
     public void perform(
             final Lion lion,
-            final Object event) {
-        String actionMessage = new StringBuilder().append(lion).append(message).append(event).append(".").toString();
+            final Object object) {
+        String actionMessage = new StringBuilder().append(lion).append(message).append(object).append(".").toString();
         lion.say(actionMessage);
     }
 
@@ -49,5 +51,6 @@ public enum Action {
         public static final String ESCAPES_FROM_THE = " escapes from the ";
         public static final String WATCHES_THE = " watches the ";
         public static final String GETS = " gets ";
+        public static final String IS = " is ";
     }
 }

@@ -68,6 +68,10 @@ public class Lion {
         output.println(string);
     }
 
+    public void describe() {
+        Action.DESCRIBE.perform(this, this.fullness);
+    }
+
     public Fullness getFullness() {
         return fullness;
     }
