@@ -2,35 +2,39 @@ package main.java.name.nickvolynkin.test2gis.lion;
 
 /**
  * Reactions describe transitions between states.
+ * <p/>
+ * Reaction must have non-null initialState and event, while finalState and perform are optional.
+ *
  * @author Nick Volynkin  nick.volynkin@gmail.com
  */
 public enum Reaction {
-    IGNORE_PREY(SavannahEvent.Antelope, Fullness.Full, LionAction.Sleep, Fullness.Hungry),
-    HUNT_PREY(SavannahEvent.Antelope, Fullness.Hungry, LionAction.Eat, Fullness.Full),
-    ESCAPE_FULL(SavannahEvent.Hunter, Fullness.Full, LionAction.Escape, Fullness.Hungry),
-    ESCAPE_HUNGRY(SavannahEvent.Hunter, Fullness.Hungry, LionAction.Escape, Fullness.Hungry),
-    TREE_FULL(SavannahEvent.Tree, Fullness.Full, LionAction.Watch, Fullness.Hungry),
-    TREE_HUNGRY(SavannahEvent.Tree, Fullness.Hungry, LionAction.Sleep, Fullness.Hungry),
-    ;
+    IGNORE_PREY(Event.ANTELOPE, Fullness.FULL, Action.SLEEP, Action.GET_HUNGRY),
+    HUNT_PREY(Event.ANTELOPE, Fullness.HUNGRY, Action.EAT, Action.GET_FULL),
+    ESCAPE_FULL(Event.HUNTER, Fullness.FULL, Action.ESCAPE, Action.GET_HUNGRY),
+    ESCAPE_HUNGRY(Event.HUNTER, Fullness.HUNGRY, Action.ESCAPE),
+    TREE_FULL(Event.TREE, Fullness.FULL, Action.WATCH, Action.GET_HUNGRY),
+    TREE_HUNGRY(Event.TREE, Fullness.HUNGRY, Action.SLEEP);
 
     public final Fullness initialState;
-    public final SavannahEvent event;
-    public final Fullness finalState;
-    public final LionAction action;
-//    public final LionAction[] actions;
+    public final Event event;
+    public final Action[] actions;
 
+    /**
+     * @param event
+     *         invoking event
+     * @param fullness
+     *         Lion's fullness when Reaction invokes
+     * @param actions
+     *         optional: actions to perform
+     */
     Reaction(
-            final SavannahEvent event,
-            final Fullness initialState,
-            final LionAction action,
-            final Fullness finalState
-            //            ,final LionAction[] actions
+            final Event event,
+            final Fullness fullness,
+            final Action... actions
     ) {
-        this.initialState = initialState;
+        this.initialState = fullness;
         this.event = event;
-        this.finalState = finalState;
-        this.action = action;
-//        this.actions = actions;
+        this.actions = actions;
     }
 }
 

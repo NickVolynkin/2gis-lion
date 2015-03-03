@@ -8,10 +8,16 @@ public class Lion {
 
     private Fullness fullness;
 
-    public void react(SavannahEvent event) {
+    public void react(Event event) {
 
     }
 
 
+    public Fullness getFullness() {
+        return fullness;
+    }
 
+    void setFullness(final Fullness fullness) {
+        this.fullness = fullness;
+    }
 }
