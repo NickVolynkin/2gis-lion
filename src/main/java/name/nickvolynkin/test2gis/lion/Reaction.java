@@ -1,13 +1,11 @@
 package main.java.name.nickvolynkin.test2gis.lion;
 
 /**
- * Reactions describe transitions between states.
- * <p/>
- * Reaction must have non-null initialState and event, while finalState and perform are optional.
+ * Reactions describe transitions between Lion's states.
  *
  * @author Nick Volynkin  nick.volynkin@gmail.com
  */
-public enum Reaction {
+enum Reaction {
     IGNORE_PREY(Event.ANTELOPE, Fullness.FULL, Action.SLEEP, Action.GET_HUNGRY),
     HUNT_PREY(Event.ANTELOPE, Fullness.HUNGRY, Action.EAT, Action.GET_FULL),
     ESCAPE_FULL(Event.HUNTER, Fullness.FULL, Action.ESCAPE, Action.GET_HUNGRY),
@@ -15,17 +13,17 @@ public enum Reaction {
     TREE_FULL(Event.TREE, Fullness.FULL, Action.WATCH, Action.GET_HUNGRY),
     TREE_HUNGRY(Event.TREE, Fullness.HUNGRY, Action.SLEEP);
 
-    public final Fullness initialState;
-    public final Event event;
-    public final Action[] actions;
+    final Fullness initialState;
+    final Event event;
+    final Action[] actions;
 
     /**
      * @param event
      *         invoking event
      * @param fullness
-     *         Lion's fullness when Reaction invokes
+     *         required fullness
      * @param actions
-     *         optional: actions to perform
+     *         optional: action(s) to perform
      */
     Reaction(
             final Event event,
