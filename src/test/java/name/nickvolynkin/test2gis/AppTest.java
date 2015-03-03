@@ -1,4 +1,4 @@
-package name.nickvolynkin.test2gis;
+package test.java.name.nickvolynkin.test2gis;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -7,7 +7,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class AppTest
     extends TestCase
 {
     /**
