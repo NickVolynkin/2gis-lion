@@ -6,7 +6,7 @@ package main.java.name.nickvolynkin.test2gis.lion;
  */
 public class Lion {
 
-    private HungerState hungerState;
+    private Fullness fullness;
 
     public void react(SavannahEvent event) {
 
